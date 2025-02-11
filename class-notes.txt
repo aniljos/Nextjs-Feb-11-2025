@@ -7,3 +7,34 @@ REST API Mock: https://github.com/aniljos/REST-API-Mock
 
 Babel cdn: https://cdnjs.com/libraries/babel-standalone/7.26.3
 
+
+Use JS Library
+
+1. Download the library(.js) on the machine(library website)
+2. Install the library using NPM
+3. Use a CDN   
+
+Project Files/Folders
+
+1. package.json: NPM configuration files
+			- Dependencies(dev/prod)
+			- Scripts
+2. node_modules folder: Dependencies folder
+3. public folder: All public files accessible from the browser(http)
+				-static: images, icons
+4. tsconfig.json: Typescript compiler config files
+5. eslint.config.mjs: esLint configuration file
+6. next.config.ts: Nextjs config
+		- customize the React or Nextjs
+7. src folder: optional folder with the source code
+8. app folder: AppRouter related files reside(Nextjs 13 onwards)
+			-layout.tsx: App layout 
+			- page.tsx : The page rendered on the root/home route
+			
+9. pages folder: PagesRouter related files(legacy)
+
+
+File Names
+
+1. Components(reuseable) - filename(Message.tsx) is the component name(Message).  
+2. Components(pages) - filename(page.tsx) and component name can be anything.
