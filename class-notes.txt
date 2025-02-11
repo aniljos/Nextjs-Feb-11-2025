@@ -1,0 +1,9 @@
+Nextjs session 11th-Feb-2025
+
+
+
+Git Url: https://github.com/aniljos/Nextjs-Feb-11-2025
+REST API Mock: https://github.com/aniljos/REST-API-Mock
+
+Babel cdn: https://cdnjs.com/libraries/babel-standalone/7.26.3
+
