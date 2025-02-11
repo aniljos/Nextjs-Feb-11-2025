@@ -1,3 +1,7 @@
+'use client'
+
+import { useEffect } from "react";
+
 type MessageProps = {
     text: string;
     color: string
@@ -5,6 +9,16 @@ type MessageProps = {
 export function Message(props: MessageProps){
 
     console.log("Message props", props);
+
+    //useEffect(setUp, [list of dependencies]);
+    useEffect(() => {
+        console.log("[Message] mounted")
+
+        return () => {
+            console.log("[Message] unmounted")
+        }
+    }, [])
+
     return (
         <div style={{border: `2px solid ${props.color}`, padding: "4px", margin: "4px"}}>
             <h4>Hello {props.text}</h4>

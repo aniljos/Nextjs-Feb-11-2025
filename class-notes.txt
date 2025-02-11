@@ -38,3 +38,50 @@ File Names
 
 1. Components(reuseable) - filename(Message.tsx) is the component name(Message).  
 2. Components(pages) - filename(page.tsx) and component name can be anything.
+
+Components
+	- Design
+		- Functional
+		- Class
+	- Types
+		- Client components: Have been around since React first version
+				- executed/renderd on the browser
+		- Server components: Introduced in React 18
+				- executed/renderd on the server
+		- Nextjs 13 onwards(App router), server componets are the default
+		- Pages router, client components are the default
+		
+Component Props
+	- props is read-only
+	
+	
+Component State
+	- Signature of setState
+			-setState(updated)
+			-setState(callback)  => prev => updated
+	- State updates are asynchronous
+	- State updates are batched
+			count = 5	
+			 setCounter(counter + 1); ==> setCounter(6)
+			 setCounter(counter + 1); ==> setCounter(6)
+			 
+			 setCounter(prevCounter => prevCounter + 1); ==> setCounter(invoke the callback(currentCountValue))
+			 setCounter(prevCounter => prevCounter + 1); ==> setCounter(invoke the callback(currentCountValue))
+			 
+			
+			
+useEffect
+	//useEffect(setUp, [list of dependencies]);
+	
+	mount:
+		- useEffect(setUp, []);==> emtpy dependency array
+		- The setup is invoked after the first render
+		- fetch data from the server(API call)
+		- Register for event(window, document)
+		- DOM initialization
+		
+	unmount:
+	   - callback returned from the setup of mount
+	   - Cancel any API calls
+	   - unregister for event(window, document)
+	   - cleanup

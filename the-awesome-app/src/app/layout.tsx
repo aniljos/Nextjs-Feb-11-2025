@@ -25,7 +25,30 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+
+        <nav className="navbar navbar-dark bg-dark">
+          <div className="container-fluid">
+            <a className="navbar-brand" href="/">Next.js</a>
+
+            <ul className="nav">
+              <li className="nav-item">
+                <a className="nav-link" href="/">Home</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/about">About</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/login">Login</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main>
+          {children}
+        </main>
+
+
       </body>
     </html>
   );
