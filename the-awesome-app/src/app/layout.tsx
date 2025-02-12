@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { AppBar } from "@/components/AppBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,28 +27,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
 
-        <nav className="navbar navbar-dark bg-dark">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="/">Next.js</a>
-
-            <ul className="nav">
-              <li className="nav-item">
-                <a className="nav-link" href="/">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/about">About</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/login">Login</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-        <main>
-          {children}
-        </main>
-
+        <div className="container-fluid">
+          <AppBar/>
+          <main>
+            {children}
+          </main>
+        </div>
 
       </body>
     </html>
