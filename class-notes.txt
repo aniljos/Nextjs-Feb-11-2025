@@ -56,6 +56,10 @@ Components
 		
 Component Props
 	- props is read-only
+	- <Counter initialValue={5} /> ==> props.initialValue
+	- <MyCOmponent>
+			<p>Hello</p>   ==> props.children
+	  </MyCOmponent>
 	
 	
 Component State
@@ -70,6 +74,8 @@ Component State
 			 
 			 setCounter(prevCounter => prevCounter + 1); ==> setCounter(invoke the callback(currentCountValue))
 			 setCounter(prevCounter => prevCounter + 1); ==> setCounter(invoke the callback(currentCountValue))
+	- State should always be treated as immutable
+		- To change the state, create a copy of the state, make chnages to the copy and update the state(with the copy)
 			 
 			
 			
@@ -88,3 +94,36 @@ useEffect
 	   - Cancel any API calls
 	   - unregister for event(window, document)
 	   - cleanup
+
+
+Application Design
+
+1. Smaller Components
+		-Easy Develop, Maintain, Test
+2. 
+
+
+Forms
+ - controlled input
+		- Reactive
+		- Bind the form control to the state and handle on the onChange event
+		
+		
+ - uncontrolled input
+		- Non-reactive
+		
+Styles/Class
+
+ - css class: globally/locally(module)
+ - inline styles: always be objects(JSX)
+ 
+ 
+EditProduct assignment
+	- Fetch the product data: GET http://localhost:9000/products/[id]
+			- Stored in the state(product)
+	- Bind the state to the input field(controlled input)
+			- product is immutable
+	- Save the product : PUT http://localhost:9000/products/[id] {product}
+			- navigae back to /products/
+	- Cancel 
+			- navigae back to /products/
