@@ -96,11 +96,14 @@ useEffect
 	   - cleanup
 
 
-Application Design
+Application Design & Performnace
 
 1. Smaller Components
 		-Easy Develop, Maintain, Test
-2. 
+2. Optimization
+		- React.memo : memoized copy(cached) of the component
+		- Hooks: useCallback, useMemo
+		- Virtual DOM
 
 
 Forms
@@ -111,6 +114,7 @@ Forms
 		
  - uncontrolled input
 		- Non-reactive
+		- Get a reference(useRef)- read and write the values with the reference
 		
 Styles/Class
 
@@ -127,3 +131,8 @@ EditProduct assignment
 			- navigae back to /products/
 	- Cancel 
 			- navigae back to /products/
+			
+React Hooks
+	- useEffect
+	- useState
+	- useRef

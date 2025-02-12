@@ -1,16 +1,22 @@
 'use client'
 import { Product } from "@/model/product";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import classes from './page.module.css';
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
 import { useRouter } from "next/navigation";
+import { ProductView } from "./ProductView";
 
 const baseUrl = "http://localhost:9000/products";
 
 export default function ListProductsPage(){
 
+   
+
     const [products, setProducts] = useState<Product[]>([]);
+    const [isMessageVisible, setMessageVisible] = useState(false);
     const router = useRouter();
+    const noOfClickRef = useRef(0);
+    //let noOfClicks = 0;
     
     useEffect(() => {
 
@@ -32,10 +38,9 @@ export default function ListProductsPage(){
         }
     }
 
-    async function deleteProduct(product: Product){
+    const  deleteProduct = useCallback( async(product: Product) => {
 
         try {
-            
             const url = baseUrl + "/" + product.id;
             await axios.delete(url);
             //await fetchProducts();
@@ -47,8 +52,6 @@ export default function ListProductsPage(){
                 copy_of_products.splice(index, 1);
                 setProducts(copy_of_products);
             }
-            
-
             alert("product deleted with id " + product.id)
 
         } catch (error) {
@@ -56,28 +59,49 @@ export default function ListProductsPage(){
             console.log(error);
             alert("failed to delete product with id " + product.id)
         }
-    }
+    }, [products]);
 
-    function editProduct(product: Product){
+    const editProduct = useCallback( (product: Product) => {
             router.push("/products/" + product.id);
+    }, []);
+
+    const totalPrice = useMemo(() => {
+
+        console.log("calculateTotalPrice");
+        let totalPrice  = 0;
+        products.forEach(p => {
+
+            if(p.price)
+            totalPrice += p.price;
+
+        });
+        return totalPrice;
+
+    }, [products]);
+
+    function changeVisibility(){
+        setMessageVisible(!isMessageVisible);
+        noOfClickRef.current++;
+        console.log("noOfClicks", noOfClickRef);
     }
 
    //const mystyle = {display: "flex", flexFlow: "row wrap", justifyContent: "center"};
     return (
         <div>
             <h3>List Products</h3>
+
+            <div>TotalPrice: {totalPrice} </div>
+
+            {isMessageVisible ? <div className="alert alert-info">This page demonstrates API calls and rendering arrays</div>: null}
+            <br />
+            <button className="btn btn-primary" onClick={changeVisibility}> {isMessageVisible? "Hide" : "Show"} </button>
+
+
             <div style={{display: "flex", flexFlow: "row wrap", justifyContent: "center"}}>
                 {products.map(product => {
 
                     return (
-                        <div key={product.id} className={classes.product}>
-                            <p>Id: {product.id}</p>
-                            <p>{product.name}</p>
-                            <p>{product.description}</p>
-                            <p>Price: {product.price}</p>
-                            <button className="btn btn-warning" onClick={() => {deleteProduct(product)}}>Delete</button>&nbsp;
-                            <button className="btn btn-info" onClick={() => editProduct(product)}>Edit</button>
-                        </div>
+                       <ProductView key={product.id} product={product} onDelete={deleteProduct} onEdit={editProduct}/>
                     )
                 })}
             </div>

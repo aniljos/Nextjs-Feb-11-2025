@@ -17,6 +17,7 @@ export function Counter(props: CounterProps){
     useEffect(() => {
 
         console.log("Counter updated", counter);
+        //setCounter(prevCounter => prevCounter + 1);
        
     }, [counter]);
 

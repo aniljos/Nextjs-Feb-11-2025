@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
@@ -10,6 +10,13 @@ export default function LoginPage() {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
     const router = useRouter();
+    const usernameRef = useRef<HTMLInputElement>(null);
+
+    
+
+    useEffect(() => {
+        usernameRef.current?.focus();
+    }, [])
 
     function handleNameChange(evt: ChangeEvent<HTMLInputElement>) {
 
@@ -19,6 +26,8 @@ export default function LoginPage() {
     async function handleSubmit(evt: FormEvent<HTMLFormElement>){
             
         evt.preventDefault();
+
+        console.log("username", usernameRef.current?.value);
         if(username && password){
 
             //API call
@@ -69,7 +78,8 @@ export default function LoginPage() {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username">UserName</label>
-                    <input type="text" className="form-control" id="username" value={username} onChange={handleNameChange} />
+                    <input type="text" className="form-control" id="username" 
+                                value={username} onChange={handleNameChange} ref={usernameRef}/>
                 </div>
 
                 <div className="form-group">
