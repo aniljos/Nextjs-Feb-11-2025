@@ -1,28 +1,45 @@
 'use client'
-import { Product } from "@/model/Product";
+import { Product } from "@/model/product";
 import axios from "axios";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { useRouter } from "next/navigation";
 import { ProductView } from "./ProductView";
 import { useTitle } from "@/hooks/useTitle";
-import { useProducts } from "@/hooks/useProducts";
 
 const baseUrl = "http://localhost:9000/products";
 
 export default function ListProductsPage(){
 
    
-    const {products, setProducts} = useProducts(baseUrl);
+
+    const [products, setProducts] = useState<Product[]>([]);
     const [isMessageVisible, setMessageVisible] = useState(false);
     const router = useRouter();
     const noOfClickRef = useRef(0);
     //let noOfClicks = 0;
     useTitle("Products");
     
-    
+    useEffect(() => {
 
-    
+        console.log("rendering useEffect")
+        fetchProducts();
+    }, [])
+
+    async function fetchProducts(){
+
+        
+        try {
+            
+            const response = await axios.get<Product []>(baseUrl);
+            console.log("resp", response.data);
+            setProducts(response.data);
+
+        } catch (error) {
+
+            console.log("error", error);
+        }
+    }
 
     const  deleteProduct = useCallback( async(product: Product) => {
 

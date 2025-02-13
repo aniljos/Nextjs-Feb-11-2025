@@ -105,7 +105,13 @@ Application Design & Performnace
 		- React.memo : memoized copy(cached) of the component
 		- Hooks: useCallback, useMemo
 		- Virtual DOM
-
+3. Reuseability
+		- Components (reusebale)
+		- Higher order components(HOC)
+			- function that returns a component
+			- Inject a behaviour(props/state) to a component
+	    - Custom Hooks
+			- A function that uses other hooks(useState, useEffect)
 
 Forms
  - controlled input
