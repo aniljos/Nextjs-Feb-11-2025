@@ -143,3 +143,30 @@ React Hooks
 	- useEffect
 	- useState
 	- useRef
+	
+State management(Client session)
+
+ - localStorage : persistent info on the browser
+ - sessionStorage : non-persistent for one session
+ 
+ - In the browser memory 
+		- React context, Redux
+		
+		
+Redux
+	-Action is an object
+		- {type: "save_access_token", token: "abc"}
+		- {type: "clear_access_token"}
+    -Reducer is a function	
+		- receives the actions updates the store
+		- one reducer per store
+		- design to define multiple reducers and combine it to a single reducer
+	-Store
+		- One store per application
+		
+	- library
+		- redux
+		- react-redux
+		- @reduxjs/toolkit
+		- npm i @reduxjs/toolkit react-redux 
+		
