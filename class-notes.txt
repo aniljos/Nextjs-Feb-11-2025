@@ -187,6 +187,15 @@ Redux
 		-  slices
 				- state is treated as mutable
 				- create actions creators(helper)
+React Context
+	- Low level API
+	- Mutiple context(store)
+	- reading from the context is simpler
+		- useContext(similar to the useSelector)
+	- updateing the context is more complex(nothin dispatch)
+		- we will take care of rerendering the UI
+	
+	
 		
 			
 		
