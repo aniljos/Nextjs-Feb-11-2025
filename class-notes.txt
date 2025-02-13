@@ -170,3 +170,23 @@ Redux
 		- @reduxjs/toolkit
 		- npm i @reduxjs/toolkit react-redux 
 		
+	- react-redux
+		-Provider component
+		-Hooks	
+			- useDispatch: returns a dispatch function
+			- useSelector: select/fetch data from the store
+			- useStore: return a handle to the store
+			
+	- Middleware
+		-Intercepts  the actions before the reducer process it
+		- logging, validation, asynchronous 
+		- asynchronous library: redux thunk, redux saga
+	-Redux Toolkit
+		- Opinionated
+		- Implements various design pattern
+		-  slices
+				- state is treated as mutable
+				- create actions creators(helper)
+		
+			
+		

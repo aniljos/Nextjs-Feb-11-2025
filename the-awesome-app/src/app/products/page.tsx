@@ -8,7 +8,8 @@ import { ProductView } from "./ProductView";
 import { useTitle } from "@/hooks/useTitle";
 import { useProducts } from "@/hooks/useProducts";
 
-const baseUrl = "http://localhost:9000/products";
+//const baseUrl = "http://localhost:9000/products";
+const baseUrl = "http://localhost:9000/secure_products";
 
 export default function ListProductsPage(){
 
