@@ -1,5 +1,5 @@
 'use client'
-import { Product } from "@/model/product";
+import { Product } from "@/model/Product";
 import axios from "axios";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 

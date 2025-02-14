@@ -1,7 +1,7 @@
 'use client'
 // <ProductView product={product}/>
 
-import { Product } from "@/model/product";
+import { Product } from "@/model/Product";
 import classes from './page.module.css';
 import React from "react";
 
