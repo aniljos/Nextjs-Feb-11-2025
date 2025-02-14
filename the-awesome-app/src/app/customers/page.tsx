@@ -25,7 +25,7 @@ export default async function CustomerListingPage(){
 
 export async function CustomerPage(){
 
-    await new Promise((resolve) => setTimeout(resolve, 10000));
+   // await new Promise((resolve) => setTimeout(resolve, 10000));
     //api call directly in the function
     const url = "http://localhost:9000/customers";
     //const response = await axios.get<Customer[]>(url);
