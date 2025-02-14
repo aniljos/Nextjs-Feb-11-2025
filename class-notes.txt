@@ -9,6 +9,7 @@ Babel cdn: https://cdnjs.com/libraries/babel-standalone/7.26.3
 
 Quiz 1: https://forms.gle/LCCoYzsVtHxQWXVu5
 Quiz 2: https://forms.gle/ofJoT3RiPAwxPMi88
+Quiz 3: https://forms.gle/LxAxdof1rmVrnZ4d7
 
 
 
@@ -194,6 +195,13 @@ React Context
 		- useContext(similar to the useSelector)
 	- updateing the context is more complex(nothin dispatch)
 		- we will take care of rerendering the UI
+		
+		
+SSR
+ - the page has dynamic props
+ - the page uses a dynamic features like headers/cookies 
+ - the data fetch disables the cache
+ - export const dynamic = 'force-dynamic'
 	
 	
 		

@@ -1,9 +1,12 @@
+
+import { headers } from "next/headers";
 export default async function AboutPage(){
 
-    console.log("rendering AboutPage...");
+    const contenType = (await headers()).get("Content-Type");
+    console.log("rendering AboutPage...", contenType);
 
     //simulate a delay
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    //await new Promise((resolve) => setTimeout(resolve, 5000));
     
     return (
         <div>
